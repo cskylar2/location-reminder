@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <EditText
+        android:id="@+id/newReminderID"
+       	android:layout_width="match_parent"
+       	android:layout_height="wrap_content"
+       	android:hint="@string/remainerNameHint" />
+    
+    <CheckBox
+        android:id="@+id/checkBoxID"
+       	android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+       	android:text="@string/use_location"
+       	android:onClick="onCheckBoxClick"
+       	android:layout_below="@id/newReminderID" />
+    
+    <ViewFlipper 
+        android:id="@+id/viewFlipperID"
+        android:layout_width="fill_parent"
+       	android:layout_height="fill_parent"
+       	android:layout_below="@id/checkBoxID" >
+       	
+        <LinearLayout android:id="@+id/mainLayout"
+             android:layout_width="fill_parent"
+		     android:layout_height="wrap_content"
+		     android:orientation="vertical">
+        
+        <!-- Layout for Date/Time/Repetition -->
+        <LinearLayout android:id="@+id/dataTimeLayoutID"
+             android:layout_width="fill_parent"
+		     android:layout_height="wrap_content"
+		     android:orientation="horizontal">
+            <com.example.locationreminder.DateDisplayPicker
+           		android:id="@+id/dateDisplayPickerID"
+		       	android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+    			style="@style/date_time_spinner_style" />
+             <com.example.locationreminder.TimeDisplayPicker
+           		android:id="@+id/timeDisplayPickerID"
+		       	android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+    			style="@style/date_time_spinner_style" />
+        </LinearLayout>
+		<TextView
+               android:id="@+id/repetionID"
+       		   android:layout_width="match_parent"
+		       android:layout_height="0dp"
+		       android:text="@string/repetition"
+		       android:gravity="center_vertical"
+		       android:layout_weight="1"
+		       android:paddingRight="4dp"
+		       style="@style/spinner_description_style" />
+         <Spinner
+               android:id="@+id/repetition_spinnerID"
+   		       android:layout_width="match_parent"
+		       android:layout_height="0dp"
+		       android:layout_weight="1"
+		       android:padding="0px"
+     		   style="@android:style/Widget.DeviceDefault.Light.Spinner" />
+	    </LinearLayout>
+	    
+        <!-- Layout for Address and Map icon -->
+        <LinearLayout android:id="@+id/locationLayoutID"
+             android:layout_width="fill_parent"
+		     android:layout_height="wrap_content"
+		     android:orientation="vertical">
+            <EditText
+		     	android:id="@+id/addressID"
+		       	android:layout_width="fill_parent"
+		       	android:layout_height="match_parent"
+		       	android:hint="@string/address" />
+         </LinearLayout>
+    </ViewFlipper>
+     
+    <FrameLayout 
+        android:id="@+id/fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/viewFlipperID" />
+    <!-- 
+    <fragment android:name="com.example.locationreminder.NewReminderFragment"
+              android:id="@+id/headlines_fragmentID"
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              />
+         -->  
+</RelativeLayout>

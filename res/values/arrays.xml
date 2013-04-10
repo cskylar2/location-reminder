@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <!-- Used in View/Spinner1.java -->
+    <string-array name="repetition">
+        <item>One-time event</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly (every last day of the week)</item>
+        <item>Monthly (on the last day)</item>
+        <item>Yearly</item>
+    </string-array>
+</resources>
